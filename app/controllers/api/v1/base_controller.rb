@@ -16,7 +16,6 @@ class Api::V1::BaseController < ApplicationController
 
   protected
   def authenticate_request!
-    binding.pry
     unless user_id_in_token?
       render json: { errors: ['Not Authenticated'] }, status: :unauthorized
       return

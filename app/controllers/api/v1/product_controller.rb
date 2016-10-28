@@ -1,5 +1,5 @@
 class Api::V1::ProductController < Api::V1::BaseController
-  before_filter :authenticate_request!
+  before_filter :authenticate_request!, :except => [:index]
 
 
   def index
@@ -8,7 +8,6 @@ class Api::V1::ProductController < Api::V1::BaseController
   end
 
   def create
-    binding.pry
     @product = Product.new(product_params)
     if @product.save
       current_user.store.products.push(@product)
