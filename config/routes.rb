@@ -2,10 +2,18 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "home#index"
 
-  scope :auth do
-    get 'is_signed_in', to: 'auth#is_signed_in?'
+  get 'home' => 'home#index'
+
+
+
+  namespace :api do
+    namespace :v1 do
+      post 'auth_user' => 'authentication#authenticate_user'
+      post 'register_user' => 'authentication#register_user'
+      get 'products' => 'product#index'
+      post 'product' => 'product#create'
+    end
   end
-  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
