@@ -8,8 +8,14 @@ class Api::V1::ProductController < Api::V1::BaseController
   end
 
   def create
-    @product = Product.new(product_params)
+    base_64_image = params[:image]
+    blob = Base64.decode64(base_64_image)
+    decoded_image = MiniMagick::Image.read(blob)
+    image_file = File.open(decoded_image.path)
+    @product = Product.new(product_params.merge(:image=> image_file))
     if @product.save
+      @product.image_url = @product.image.url
+      @product.save
       current_user.store.products.push(@product)
       current_user.save
       success_response 201, "Product created successfully", product: @product

@@ -30,6 +30,7 @@ gem 'rack-cors', :require => 'rack/cors'
 gem "mongoid-paperclip"
 gem 'aws-sdk', '~> 2.3'
 gem 'dotenv-rails', :groups => [:development, :test]
+gem "mini_magick"
 
 
 # Use ActiveModel has_secure_password

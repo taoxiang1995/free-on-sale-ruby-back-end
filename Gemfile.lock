@@ -109,6 +109,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
+    mini_magick (4.5.1)
     mini_portile2 (2.1.0)
     minitest (5.9.1)
     mongo (2.1.0.beta)
@@ -215,6 +216,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jwt
+  mini_magick
   mongoid!
   mongoid-paperclip
   pry
@@ -228,4 +230,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.5
+   1.13.5
